@@ -10,11 +10,12 @@ class PicsController < ApplicationController
   end
 
   def new
-    @pic=Pic.new
+    # pictures are being built by current user
+    @pic=current_user.pics.build
   end
 
   def create
-    @pic=Pic.new(picParams)
+    @pic=current_user.pics.build(picParams)
     if @pic.save
       redirect_to pic_path(@pic),notice: "Yess! It was posted."
     else
