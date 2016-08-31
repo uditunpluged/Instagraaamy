@@ -1,1 +1,8 @@
-<h1>Placeholder</h1>
+<%= link_to 'Gram it!',new_pic_path %>
+<% @pics.each do |pic| %>
+    <ul>
+      <li><%= link_to pic.title,pic_path(pic) %></li>
+
+    </ul>
+
+<% end %>
