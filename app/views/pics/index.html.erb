@@ -1,17 +1,12 @@
-<div class="container-fluid">
-  <div class="col-md-6 col-md-offset-3">
-    <div id="pics" class="transistion-enabled">
-      <% @pics.each do |pic| %>
-          <div class="box panel panel-default">
+<div class="col-md-6 col-md-offset-4 ">
+  <div id="pics" class="transistion-enabled">
+    <% @pics.each do |pic| %>
+        <div class="box panel panel-default">
+          <%= link_to (image_tag pic.image.url), pic_path(pic) %>
+          <h2><%= link_to pic.title, pic_path(pic) %></h2>
+        </div>
 
+    <% end %>
 
-            <%= link_to (image_tag pic.image.url), pic_path(pic) %>
-            <h2><%= link_to pic.title, pic_path(pic) %></h2>
-          </div>
-
-      <% end %>
-
-    </div>
   </div>
-
 </div>
