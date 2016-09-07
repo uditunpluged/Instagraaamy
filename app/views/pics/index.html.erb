@@ -1,9 +1,17 @@
 <div class="container-fluid">
-  <% @pics.each do |pic| %>
-      <ul>
-        <h1><%= link_to pic.title, pic_path(pic) %></h1>
-        <%= image_tag pic.image.url %>
-      </ul>
+  <div class="col-md-6 col-md-offset-3">
+    <div id="pics" class="transistion-enabled">
+      <% @pics.each do |pic| %>
+          <div class="box panel panel-default">
 
-  <% end %>
+
+            <%= image_tag pic.image.url(:medium) %>
+            <h2><%= link_to pic.title, pic_path(pic) %></h2>
+          </div>
+
+      <% end %>
+
+    </div>
+  </div>
+
 </div>
