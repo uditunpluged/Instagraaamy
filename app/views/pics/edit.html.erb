@@ -8,6 +8,14 @@
           <h1>Edit Pic</h1>
         </div>
         <div class="panel-body">
+          <div id="current_image">
+            <strong class="center">
+              Right Now
+            </strong>
+            <br>
+            <%= image_tag @pic.image.url(:medium) %>
+
+          </div>
           <%= render 'form' %>
         </div>
       </div>
