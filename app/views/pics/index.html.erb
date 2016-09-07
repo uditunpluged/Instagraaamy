@@ -1,8 +1,9 @@
-<%= link_to 'Gram it!',new_pic_path %>
-<% @pics.each do |pic| %>
-    <ul>
-      <li><%= link_to pic.title,pic_path(pic) %></li>
+<div class="container-fluid">
+  <% @pics.each do |pic| %>
+      <ul>
+        <h1><%= link_to pic.title, pic_path(pic) %></h1>
 
-    </ul>
+      </ul>
 
-<% end %>
+  <% end %>
+</div>

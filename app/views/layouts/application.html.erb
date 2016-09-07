@@ -6,11 +6,36 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-    <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, class: "alert alert-info" %>
+<body style="padding-top: 70px;">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-brand">
+      <%= link_to 'Instagraaam', root_path %>
+    </div>
+    <% if user_signed_in? %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'Gram It! ', new_pic_path %></li>
+          <li><%= link_to 'Settings ', edit_user_registration_path %></li>
+          <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+        </ul>
+    <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'Join Us ', new_user_registration_path %></li>
+          <li><%= link_to 'Login', new_user_session_path %></li>
+        </ul>
     <% end %>
-<%= yield %>
+
+
+  </div>
+</nav>
+
+<div class="container_fluid">
+  <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert alert-info" %>
+  <% end %>
+  <%= yield %>
+</div>
 
 </body>
 </html>

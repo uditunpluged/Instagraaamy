@@ -1,7 +1,13 @@
-<h1><%= @pic.title %></h1>
-<p><%= @pic.description %></p>
-<p><%= @pic.user.email %></p>
+<div class="container-fluid">
+  <h1><%= @pic.title %></h1>
 
-<%= link_to 'Back',root_path %>
-<%= link_to 'edit',edit_pic_path %>
-<%= link_to 'delete',pic_path, :method => :delete, data:{confirm:"Are you sure"} %>
+  <p><%= @pic.description %></p>
+
+  <p><%= @pic.user.email %></p>
+
+  <% if user_signed_in? %>
+      <%= link_to 'Back', root_path %>
+      <%= link_to 'edit', edit_pic_path %>
+      <%= link_to 'delete', pic_path, :method => :delete, data: {confirm: "Are you sure"} %>
+  <% end %>
+</div>
